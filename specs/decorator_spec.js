@@ -10,6 +10,7 @@ describe( 'Decorator', function(){
     decorator = new Decorator;
     room = new Room(100,0);
     paint1 = new Paint(20);
+    paint2 = new Paint(100);
   });
 
   // - start with an empty paint stock
@@ -26,15 +27,22 @@ describe( 'Decorator', function(){
   });
 
   // - be able to calculate total litres paint it has in stock
-  it('be able to calculate total litres paint it has in stock',function(){
+  it('should be able to calculate total litres paint it has in stock',function(){
     decorator.addCan(paint1);
     const actual = decorator.countStock();
     assert.strictEqual(actual, 20);
   });
 
+
+  // - be able to calculate whether is has enough paint to paint a room
+
+  // - be able to paint room if has enough paint in stock
+
+  it('should be able to calculate whether is has enough paint to paint a room',function(){
+    decorator.addCan(paint1);
+    decorator.addCan(paint2);
+    const actual = decorator.countStockForRoom(room);
+    assert.strictEqual(actual, true);
+  });
+
 });
-
-// - be able to calculate whether is has enough paint to paint a room
-
-
-// - be able to paint room if has enough paint in stock

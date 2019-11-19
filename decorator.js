@@ -9,12 +9,23 @@ Decorator.prototype.addCan = function(paint){
 
 
 Decorator.prototype.countStock = function(){
-  var total = 0;
+  let total = 0;
   for (let paint of this.stock ){
     let amount = paint.amount;
     total += amount;
   }
   return total;
+};
+
+
+Decorator.prototype.countStockForRoom = function(room){
+  var paint = this.countStock();
+  if (room.paintRoom(paint) >= room.area){
+    return true;
+  } else {
+    return false;
+  };
+
 };
 
 
